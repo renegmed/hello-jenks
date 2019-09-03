@@ -1,7 +1,6 @@
 node {
     def app
 
-    stages{
       stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -35,13 +34,10 @@ node {
         }
       }
 
-    }
 
-    post {
-      always {
-        // Clean up our workspace.
-        deleteDir()
-      }    
-    }
+      stage('Clean up workspace') {
+          // Clean up our workspace.
+          deleteDir()
+      }
 
 }
