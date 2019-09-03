@@ -30,7 +30,7 @@ node {
          * First, the incremental build number from Jenkins
          * Second, the 'latest' tag.
          * Pushing multiple tags is cheap, as all the layers are reused. */
-        app.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
+        docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
             app.push("${env.BUILD_NUMBER}")
             //app.push("latest")
 
@@ -38,9 +38,9 @@ node {
       }
 
 
-      //stage('Clean up workspace') {
-          // Clean up our workspace.
-          //deleteDir()
-      //}
+      stage('Clean up workspace') {
+          Clean up our workspace.
+          deleteDir()
+      }
 
 }
