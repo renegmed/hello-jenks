@@ -50,6 +50,7 @@ pipeline {
           script {
             docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
               dockerImage.push()
+              dockerImage.push("latest")
             }
           }
         }
